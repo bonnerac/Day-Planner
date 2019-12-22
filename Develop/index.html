@@ -31,47 +31,47 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour" id="hour1"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour2"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour3"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour4"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour5"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour6"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour7"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour8"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
       <div class="row">
-        <div class="col-2 hour"></div>
+        <div class="col-2 hour hour9"></div>
         <div class="col-8 time-block" ></div>
         <div class="col-2 saveBtn"></div>
       </div>
@@ -79,5 +79,55 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="moment.js"></script>
+<script>
+  // Add current date to top of scren
+  var currentDate = moment().format('dddd MMMM Do YYYY');
+  $("#currentDay").append(currentDate);
+
+  // Add times to the left hand side of timeblocks.
+  function amTimes(){
+    for(var i = 9; i < 12; i++){
+      var time = (i + ":00 am");
+      var timeAm = moment(time, "h:mm a");
+      console.log(timeAm._i);
+      
+    }
+      
+
+      
+    };
+    amTimes();
+    
+
+  
+  
+  // function pmTimes(){
+  //  for(var i = 1; i < 6; i++){
+  //  var time = (i + ":00 pm");
+  //   var timePm = moment(time, "h:mm A");
+  //   console.log(timePm._i);
+  // }};
+  // pmTimes();
+
+  
+  
+
+  //   function appendTimes(){
+  //   for(var i=0; i<9; i++){
+  //     $("hour" + i).append(timeAm._i)
+  // }};
+  // appendTimes(); 
+ 
+
+
+
+
+  
+ 
+    
+    
+    
+</script>
   </body>
 </html>
