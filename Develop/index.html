@@ -31,49 +31,58 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <div class="row">
-        <div class="col-2 hour" id="hour1"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-2 hour hour1"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="calInput" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour2"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour3"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour4"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour5"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour6"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour7"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour8"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour9"></div>
-        <div class="col-8 time-block" ></div>
-        <div class="col-2 saveBtn"></div>
+        <div class="col-8 time-block form-group description">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+        <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
     </div>
 
@@ -86,38 +95,46 @@
   $("#currentDay").append(currentDate);
 
   // Add times to the left hand side of timeblocks.
-  function amTimes(){
-    for(var i = 9; i < 12; i++){
-      var time = (i + ":00 am");
-      var timeAm = moment(time, "h:mm a");
-      console.log(timeAm._i);
+
+  var time9Am = moment("9:00 am", "h:mm a");
+  $(".hour1").append(time9Am._i)
+  var time10Am = moment("10:00 am", "h:mm a");
+  $(".hour2").append(time10Am._i)
+  var time11Am = moment("11:00 am", "h:mm a");
+  $(".hour3").append(time11Am._i)
+  var time12Pm = moment("12:00 pm", "h:mm A");
+  $(".hour4").append(time12Pm._i)
+  var time1Pm = moment("1:00 pm", "h:mm A");
+  $(".hour5").append(time1Pm._i)
+  var time2Pm = moment("2:00 pm", "h:mm A");
+  $(".hour6").append(time2Pm._i)
+  var time3Pm = moment("3:00 pm", "h:mm A");
+  $(".hour7").append(time3Pm._i)
+  var time4Pm = moment("4:00 pm", "h:mm A");
+  $(".hour8").append(time4Pm._i)
+  var time5Pm = moment("5:00 pm", "h:mm A");
+  $(".hour9").append(time5Pm._i)
+
+  // Saving and retrieving user input in local storage.
+  var input = document.getElementById("calInput");
+  localStorage.setItem("userInput", input.val());
+  var storedValue = localStorage.getItem("userInput");
+  
+  
       
-    }
+      
+    
       
 
       
-    };
-    amTimes();
+
+
+    
     
 
   
   
-  // function pmTimes(){
-  //  for(var i = 1; i < 6; i++){
-  //  var time = (i + ":00 pm");
-  //   var timePm = moment(time, "h:mm A");
-  //   console.log(timePm._i);
-  // }};
-  // pmTimes();
-
-  
-  
-
-  //   function appendTimes(){
-  //   for(var i=0; i<9; i++){
-  //     $("hour" + i).append(timeAm._i)
-  // }};
-  // appendTimes(); 
+ 
  
 
 
