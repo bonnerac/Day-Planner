@@ -33,55 +33,55 @@
       <div class="row">
         <div class="col-2 hour hour1"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="calInput" rows="3"></textarea></div>
+          <textarea class="form-control text1" id="calInput" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour2"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text2" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour3"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text3" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour4"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text4" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour5"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text5" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour6"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text6" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour7"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text7" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour8"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text8" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
       <div class="row">
         <div class="col-2 hour hour9"></div>
         <div class="col-8 time-block form-group description">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+          <textarea class="form-control text9" id="exampleFormControlTextarea1" rows="3"></textarea></div>
         <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
       </div>
     </div>
@@ -115,13 +115,110 @@
   var time5Pm = moment("5:00 pm", "h:mm A");
   $(".hour9").append(time5Pm._i)
 
-  // Saving and retrieving user input in local storage.
-  var input = document.getElementById("calInput");
-  localStorage.setItem("userInput", input.val());
-  var storedValue = localStorage.getItem("userInput");
-  
-  
-      
+  // Saving user input in local storage. NOT WORKING
+  $(".saveBtn").click(function() {
+    var input = $(".time-block")  
+    localStorage.setItem("userInput", JSON.stringify(input.val()));
+    
+});
+
+// Retrieving user input in local storage. NOT WORKING
+var storedValue = localStorage.getItem("userInput");
+
+
+// Setting colors of text boxes. Red if present, white if past, and green if future.
+function timeCheck(){
+if (moment().isBefore(time9Am)){
+  $(".text1").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time9Am)){
+  $(".text1").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text1").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time10Am)){
+  $(".text2").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time10Am)){
+  $(".text2").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text2").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time11Am)){
+  $(".text3").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time11Am)){
+  $(".text3").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text3").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time12Pm)){
+  $(".text4").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time12Pm)){
+  $(".text4").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text4").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time1Pm)){
+  $(".text5").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time1Pm)){
+  $(".text5").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text5").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time2Pm)){
+  $(".text6").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time2Pm)){
+  $(".text6").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text6").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time3Pm)){
+  $(".text7").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time3Pm)){
+  $(".text7").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text7").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time4Pm)){
+  $(".text8").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time4Pm)){
+  $(".text8").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text8").addClass("present").removeClass("future").removeClass("past")
+}
+
+if (moment().isBefore(time5Pm)){
+  $(".text9").addClass("future").removeClass("past").removeClass("present")
+}
+if (moment().isAfter(time5Pm)){
+  $(".text9").addClass("past").removeClass("future").removeClass("present")
+}
+else{
+  $(".text9").addClass("present").removeClass("future").removeClass("past")
+}
+}; 
+timeCheck();      
       
     
       
