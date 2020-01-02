@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Work Day Scheduler</title>
+</head>
+
+<body>
+  <header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+  <div class="container">
+    <!-- Timeblocks go here -->
+    <div class="row">
+      <div class="col-2 hour hour1"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text1" id="calInput" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour2"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text2" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour3"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text3" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour4"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text4" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour5"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text5" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour6"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text6" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour7"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text7" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour8"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text8" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+    <div class="row">
+      <div class="col-2 hour hour9"></div>
+      <div class="col-8 time-block form-group description">
+        <textarea class="form-control text9" id="exampleFormControlTextarea1" rows="3"></textarea></div>
+      <div class="col-2 saveBtn"><i class="fas fa-save"></i></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="moment.js"></script>
+  <script>
+    // Add current date to top of scren
+    var currentDate = moment().format('dddd MMMM Do YYYY');
+    $("#currentDay").append(currentDate);
+
+    // Add times to the left hand side of timeblocks.
+    let associativeArray = [,
+      "9:00 am",
+      "10:00 am",
+      "11:00 am",
+      "12:00 pm",
+      "1:00 pm",
+      "2:00 pm",
+      "3:00 pm",
+      "4:00 pm",
+      "5:00 pm",
+
+    ]
+
+    var time9Am = moment("9:00 am", "h:mm a");
+    $(".hour1").append(time9Am._i)
+    var time10Am = moment("10:00 am", "h:mm a");
+    $(".hour2").append(time10Am._i)
+    var time11Am = moment("11:00 am", "h:mm a");
+    $(".hour3").append(time11Am._i)
+    var time12Pm = moment("12:00 pm", "h:mm A");
+    $(".hour4").append(time12Pm._i)
+    var time1Pm = moment("1:00 pm", "h:mm A");
+    $(".hour5").append(time1Pm._i)
+    var time2Pm = moment("2:00 pm", "h:mm A");
+    $(".hour6").append(time2Pm._i)
+    var time3Pm = moment("3:00 pm", "h:mm A");
+    $(".hour7").append(time3Pm._i)
+    var time4Pm = moment("4:00 pm", "h:mm A");
+    $(".hour8").append(time4Pm._i)
+    var time5Pm = moment("5:00 pm", "h:mm A");
+    $(".hour9").append(time5Pm._i)
+    console.log(time5Pm)
+
+    // Saving user input in local storage. NOT WORKING
+    $(".saveBtn").click(function () {
+      var input = $(".time-block")
+      localStorage.setItem("userInput", JSON.stringify(input.val()));
+
+    });
+
+    // Retrieving user input in local storage. NOT WORKING
+    var storedValue = localStorage.getItem("userInput");
+
+
+    // Setting colors of text boxes. Red if present, white if past, and green if future.
+    function timeCheck() {
+      if (moment().isBefore(time9Am)) {
+        $(".text1").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time9Am)) {
+        $(".text1").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text1").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time10Am)) {
+        Z
+        $(".text2").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time10Am)) {
+        $(".text2").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text2").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time11Am)) {
+        $(".text3").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time11Am)) {
+        $(".text3").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text3").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time12Pm)) {
+        $(".text4").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time12Pm)) {
+        $(".text4").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text4").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time1Pm)) {
+        $(".text5").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time1Pm)) {
+        $(".text5").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text5").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time2Pm)) {
+        $(".text6").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time2Pm)) {
+        $(".text6").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text6").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time3Pm)) {
+        $(".text7").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time3Pm)) {
+        $(".text7").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text7").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time4Pm)) {
+        $(".text8").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time4Pm)) {
+        $(".text8").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text8").addClass("present").removeClass("future").removeClass("past")
+      }
+
+      if (moment().isBefore(time5Pm)) {
+        $(".text9").addClass("future").removeClass("past").removeClass("present")
+      }
+      if (moment().isAfter(time5Pm)) {
+        $(".text9").addClass("past").removeClass("future").removeClass("present")
+      }
+      else {
+        $(".text9").addClass("present").removeClass("future").removeClass("past")
+      }
+    };
+    timeCheck();
+
+  </script>
+</body>
+
+</html>
